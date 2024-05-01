@@ -1,0 +1,38 @@
+
+<h1>formControl</h1>
+
+<form>
+
+<label for="name">Name</label>
+<input type="text" id="name" [formControl]="nameControl">
+<br>
+<label for="age">Age</label>
+<input type="number" id="age" [formControl]="ageControl">
+<br>
+<label for="date">Date</label>
+<input type="date" id="date" [formControl]="dateControl">
+<br>
+<label for="boolean">¿Estás de acuerdo con los términos y condiciones?</label>
+<input type="checkbox" id="boolean" name="boolean" [formControl]="checkboxControl">
+
+  <button type="button" (click)="validateForm1()">Validar</button>
+</form>
+
+<br>
+
+<h1>FormGroup</h1>
+<form [formGroup]="form">
+<label for="name2">Name</label>
+<input type="text" id="name2" formControlName="name">
+<br>
+<label for="age">Age2</label>
+<input type="text" id="age2" formControlName="age">
+<br>
+<label for="date">Date</label>
+<input type="date" id="date" formControlName="dateControl">
+<br>
+<label for="boolean">¿Estás de acuerdo con los términos y condiciones?</label>
+<input type="checkbox" id="boolean" name="boolean" formControlName="checkboxControl">
+
+<button type="button" (click)="validateForm2()">Validar</button>
+</form>
