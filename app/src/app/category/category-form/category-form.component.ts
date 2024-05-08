@@ -1,5 +1,6 @@
+import { state } from '@angular/animations';
 import { Component, inject } from '@angular/core';
-import {  FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {  AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-category-form',
@@ -10,7 +11,7 @@ export class CategoryFormComponent {
   private formBuilder: FormBuilder = inject(FormBuilder);//patron de diseño singleton
 
 
-  protected nameControl:FormControl=new FormControl<string>('Juan');
+  protected nameControl:FormControl=new FormControl<string>('');
   protected ageControl:FormControl=new FormControl<number>(0);
   protected dateControl:FormControl=new FormControl<Date>(new Date());
   protected checkboxControl:FormControl=new FormControl<boolean>(false);
@@ -26,7 +27,7 @@ this.form = this.getBuildForm();
 }
 getBuildForm():FormGroup{
   return this.formBuilder.group({
-  name: ['Juan', [ Validators.required, Validators.minLength(2)]],
+  name: ['', [ Validators.required, Validators.minLength(2)]],
   age: [0, [Validators.min(0),Validators.maxLength(120)]],
   date: [new Date(), [Validators.required]],
   checkbox: [false, [Validators.requiredTrue]]
